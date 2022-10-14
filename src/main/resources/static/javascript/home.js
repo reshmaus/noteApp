@@ -1,3 +1,4 @@
+
 //Cookie
 const cookieArr = document.cookie.split("=")
 const userId = cookieArr[1];
@@ -6,12 +7,12 @@ const userId = cookieArr[1];
 const submitForm = document.getElementById("note-form")
 const noteContainer = document.getElementById("note-container")
 
-//modal Elements
+//Modal Elements
 let noteBody = document.getElementById(`note-body`)
 let updateNoteBtn = document.getElementById('update-note-button')
 
-const headers{
-     'Content-Type: 'application/json'
+const headers = {
+    'Content-Type': 'application/json'
 }
 
 const baseUrl = "http://localhost:8080/api/v1/notes/"
