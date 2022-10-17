@@ -11,8 +11,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "Notes")
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+@AllArgsConstructor//to call the note table with all the arguments
+@NoArgsConstructor//to call the note table without any arguments
 
 public class Note {
 

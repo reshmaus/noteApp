@@ -1,3 +1,5 @@
+//This is data object, we use this to transfer data from one object to other
+
 package com.devmountain.noteApp.dtos;
 
 import com.devmountain.noteApp.entities.User;
