@@ -6,6 +6,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
+//This is the interface for accessing the methods
 public interface NoteService {
     @Transactional
     void addNote(NoteDto noteDto, Long userId);

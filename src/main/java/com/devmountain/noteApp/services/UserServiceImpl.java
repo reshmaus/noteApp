@@ -12,10 +12,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+//This is where actual Bussiness logic is for User scope, the fetch and push to DB happens
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
+    @Autowired//  Spring is able to find the corresponding
+    // dependency and inject it where it is needed throughout the application
     private UserRepository userRepository;
 
     @Autowired
@@ -23,6 +25,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
+    // This is where a new user will be added to DB
     public List<String> addUser(UserDto userDto) {
         List<String> response = new ArrayList<>();
         User user = new User(userDto);
@@ -32,6 +35,7 @@ public class UserServiceImpl implements UserService {
 
     }
         @Override
+        // This is where an existing user will be validated with his credentials and appropriate response is returned
         public List<String> userLogin(UserDto userDto) {
             List<String> response = new ArrayList<>();
             Optional<User> userOptional = userRepository.findByUsername(userDto.getUsername());

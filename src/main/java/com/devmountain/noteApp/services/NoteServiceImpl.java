@@ -14,6 +14,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+
+//This is where actual Bussiness logic is for Note scope, the fetch and push to DB happens
 @Service
 public class NoteServiceImpl implements NoteService{
 
@@ -24,6 +26,7 @@ public class NoteServiceImpl implements NoteService{
     private NoteRepository noteRepository;
 
     @Override
+    // This is where note for user by user id will added to DB
     public void addNote(NoteDto noteDto,Long userId){
         Optional<User> userOptional = userRepository.findById(userId);
         Note note = new Note(noteDto);
@@ -32,12 +35,14 @@ public class NoteServiceImpl implements NoteService{
     }
 
     @Override
+    // This is where note will be deleted by note id from DB
     public void deleteNoteById(Long noteId) {
       Optional<Note> noteOptional = noteRepository.findById(noteId);
       noteOptional.ifPresent(note -> noteRepository.delete(note));
     }
 
     @Override
+    // This is where note will be updated by note id to DB
     public void updateNoteById(NoteDto noteDto) {
      Optional<Note> noteOptional = noteRepository.findById(noteDto.getId() );
      noteOptional.ifPresent(note -> {
@@ -47,6 +52,7 @@ public class NoteServiceImpl implements NoteService{
     }
 
     @Override
+    // This is where all note fetched from DB by user id
     public List<NoteDto> getAllNotesByUserId(Long userId) {
         Optional<User> userOptional = userRepository.findById(userId);
         if(userOptional.isPresent()){
@@ -58,6 +64,7 @@ public class NoteServiceImpl implements NoteService{
     }
 
     @Override
+    // This is where note details is fetched from DB by note id
     public Optional<NoteDto> getNoteById(Long noteId) {
         Optional<Note> noteOptional = noteRepository.findById(noteId);
         if(noteOptional.isPresent()){
